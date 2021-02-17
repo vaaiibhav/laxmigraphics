@@ -1,0 +1,132 @@
+<%- include('update_header')%>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Product Details</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Product Details</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- jquery validation -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">New Product <small></small></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form id="quickForm" action="/users/update_product_details/<%= details[0].product_details_id%>" method="POST">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Category</label>
+                                        <input type="text" name="category" class="form-control"
+                                        placeholder="Enter category name ..." value='<%=details[0].Name%>'
+                                        required>
+                                        <!-- <select name="select_category" class="form-control">
+                                            <% for(var i=0; i < details.length; i++) { var selected=(
+                                                details[i].category )? "selected" : "" ; %>
+                                                <option <%=selected %>> <%= details[i].category %>
+                                                </option>
+                                                <% } %>
+                                        </select> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Product</label>
+                                        <input type="text" name="product_name" class="form-control"
+                                            placeholder="Enter product name ..." value='<%=details[0].product_name%>'
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Sub Category</label>
+                                        <input type="text" name="sub_category" class="form-control"
+                                            placeholder="Enter sub category ..." value='<%=details[0].sub_category%>'
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Additional Category</label>
+                                        <input type="text" name="additional_category" class="form-control"
+                                            placeholder="enter additional category ..."
+                                            value='<%=details[0].additional_category%>' required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Specification</label>
+                                        <input type="text" name="specification" class="form-control"
+                                            placeholder="enter specification ..." value='<%=details[0].specification%>'
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Size</label>
+                                        <input type="text" name="size" class="form-control" placeholder="enter size ..."
+                                            value='<%=details[0].size%>' required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Unit</label>
+                                        <input type="text" name="unit" class="form-control" placeholder="enter unit ..."
+                                            value='<%=details[0].unit%>' required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Rate</label>
+                                        <input type="text" name="rate" class="form-control" placeholder="enter rate ..."
+                                            value='<%=details[0].rate%>' required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Quantity</label>
+                                        <input type="text" name="quantity" class="form-control"
+                                            placeholder="enter quantity ..." value='<%=details[0].quantity%>' required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Amount</label>
+                                        <input type="text" name="amount" class="form-control"
+                                            placeholder="enter price ..." value='<%=details[0].amount%>' required>
+                                    </div>
+
+                                    <div class="form-group mb-0">
+                                        <!-- <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                        <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
+                      </div> -->
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary" onclick="myFunction()">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/.col (left) -->
+                    <!-- right column -->
+                    <div class="col-md-6">
+
+                    </div>
+                    <!--/.col (right) -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <%- include('update_footer')%>

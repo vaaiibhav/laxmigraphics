@@ -1,0 +1,85 @@
+<div class="table-responsive s_table">
+    <table class="table invoice-items-table items table-main-invoice-edit has-calculations no-mtop">
+        <thead>
+            <tr>
+                <th></th>
+                <th width="20%" align="left"><i class="fa fa-exclamation-circle" aria-hidden="true"
+                        data-toggle="tooltip"
+                        data-title="New lines are not supported for item description. Use the item long description instead."></i>
+                    Item</th>
+                <th width="25%" align="left">Description</th>
+                <th width="10%" align="right" class="qty">Qty</th>
+                <th width="15%" align="right">Rate</th>
+                <th width="20%" align="right">Tax</th>
+                <th width="10%" align="right">Amount</th>
+                <th align="center"><i class="fa fa-cog"></i></th>
+            </tr>
+        </thead>
+        <tbody class="ui-sortable">
+            <tr class="main">
+                <td></td>
+                <td>
+                    <textarea name="description" class="form-control" rows="4" placeholder="Description"></textarea>
+                </td>
+                <td>
+                    <textarea name="long_description" rows="4" class="form-control"
+                        placeholder="Long description"></textarea>
+                </td>
+                <td>
+                    <input type="number" name="quantity" min="0" value="1" class="form-control" placeholder="Quantity">
+                    <input type="text" placeholder="Unit" data-toggle="tooltip" data-title="e.q kg, lots, packs"
+                        name="unit" class="form-control input-transparent text-right">
+                </td>
+                <td>
+                    <input type="number" name="rate" class="form-control" placeholder="Rate">
+                </td>
+                <td>
+                    <div class="dropdown bootstrap-select show-tick display-block tax main-tax bs3 open"
+                        style="width: 100%;">
+                        <div class="dropdown bootstrap-select show-tick display-block tax main-tax bs3"
+                            style="width: 100%;"><select class="selectpicker display-block tax main-tax"
+                                data-width="100%" name="taxname" multiple="" data-none-selected-text="No Tax"
+                                tabindex="-98"></select><button type="button"
+                                class="btn dropdown-toggle btn-default bs-placeholder" data-toggle="dropdown"
+                                role="combobox" aria-owns="bs-select-11" aria-haspopup="listbox" aria-expanded="false"
+                                title="No Tax">
+                                <div class="filter-option">
+                                    <div class="filter-option-inner">
+                                        <div class="filter-option-inner-inner">No Tax</div>
+                                    </div>
+                                </div><span class="bs-caret"><span class="caret"></span></span>
+                            </button>
+                            <div class="dropdown-menu open"
+                                style="max-height: 198.875px; overflow: hidden; min-height: 0px;">
+                                <div class="inner open" role="listbox" id="bs-select-11" tabindex="-1"
+                                    aria-multiselectable="true"
+                                    style="max-height: 197.875px; overflow-y: auto; min-height: 0px;">
+                                    <ul class="dropdown-menu inner" role="presentation"></ul>
+                                </div>
+                            </div>
+                        </div><button type="button" class="btn dropdown-toggle btn-default bs-placeholder"
+                            data-toggle="dropdown" role="combobox" aria-owns="bs-select-11" aria-haspopup="listbox"
+                            aria-expanded="true" title="No Tax">
+                            <div class="filter-option">
+                                <div class="filter-option-inner">
+                                    <div class="filter-option-inner-inner">No Tax</div>
+                                </div>
+                            </div><span class="bs-caret"><span class="caret"></span></span>
+                        </button>
+                        <div class="dropdown-menu open">
+                            <div class="inner open" role="listbox" id="bs-select-11" tabindex="-1"
+                                aria-multiselectable="true">
+                                <ul class="dropdown-menu inner" role="presentation"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+                <td>
+                    <button type="button" onclick="add_item_to_table('undefined','undefined',undefined); return false;"
+                        class="btn pull-right btn-info"><i class="fa fa-check"></i></button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,224 @@
+<%- include('header')%>
+
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <section class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1>Customer Inquiry</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item active">Customer Inquiry</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+
+        <!-- Main content -->
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <!-- left column -->
+                    <div class="col-md-12">
+                        <!-- jquery validation -->
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">New Customer inquiry <small></small></h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <!-- form start -->
+                            <form id="quickForm" action="/users/add_customer_inquiry" method="POST">
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label>Customer Name</label>
+                                        <select name='selected_customer' class="form-control" id="customer">
+                                            <% for(var i=0 ; i < result.length ; i++){%>
+                                                <option value="<%=result[i].Customer_name%>">
+                                                    <%= result[i].Customer_name%>
+                                                </option>
+                                                <%}%>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Company</label>
+                                        <select id="company" name='Company' class="form-control">
+                                            <!-- <div id="countries"></div> -->
+                                        </select>
+
+                                        <!-- <input type="text" name="Company"  class="form-control" placeholder="Enter Company name ..." required> -->
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>GST number</label>
+                                        <select id="GST" name="VAT_number" class="form-control">
+                                            <!-- <div id="countries"></div> -->
+                                        </select>
+                                        <!-- <input type="text" name="VAT_number" class="form-control"
+                                            placeholder="Enter GST Number..."
+                                            pattern="^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$"
+                                            required> -->
+                                    </div>
+                                    <div class="form-group">
+
+                                        <label>Contact No</label>
+                                        <select id="phone" name="Mobile_number" class="form-control"> </select>
+
+                                        <!-- <input type="text" name="Mobile_number" class="form-control"
+                                            placeholder="Enter Your Contact Number..." pattern="[0-9]{5}[0-9]{5}"
+                                            required> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email ID</label>
+                                        <select id="email" name='Website' class="form-control"> </select>
+
+                                        <!-- <input type="email" name="Website" class="form-control"
+                                            placeholder="Enter Email..." required> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Company Address</label>
+                                        <select id="caddress" name='Address' class="form-control"> </select>
+
+                                        <!-- <input type="text" name="Address" class="form-control"
+                                            placeholder="Enter Company Address..." required> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label>City</label>
+                                        <select id="city" name='City' class="form-control"> </select>
+
+                                        <!-- <input type="text" name="City" class="form-control"
+                                            placeholder="Enter city name..." required> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label>State</label>
+                                        <select id="state" name='State' class="form-control"> </select>
+
+                                        <!-- <input type="text" name="State" class="form-control"
+                                            placeholder="Enter State..." required> -->
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Zip_code</label>
+                                        <select id="zipcode" name='Zip_code' class="form-control"> </select>
+
+                                        <!-- <input type="text" name="Zip_code" class="form-control"
+                                            placeholder="Enter Zip code..." pattern="[0-9]{6}" required> -->
+                                    </div>
+                                    <!-- <div class="form-group">
+                                        <label>Date</label>
+                                        <input type="date" name="Date" class="form-control"
+                                            placeholder="Enter Date of enquiry..." required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Time</label>
+                                        <input type="time" name="Time" class="form-control"
+                                            placeholder="Enter Time of enquiry..." required>
+                                    </div> -->
+                                    <div class="form-group mb-0">
+                                        <!-- <div class="custom-control custom-checkbox">
+                        <input type="checkbox" name="terms" class="custom-control-input" id="exampleCheck1">
+                        <label class="custom-control-label" for="exampleCheck1">I agree to the <a href="#">terms of service</a>.</label>
+                      </div> -->
+                                    </div>
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer">
+                                    <button type="submit" class="btn btn-primary">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                    <!--/.col (left) -->
+                    <!-- right column -->
+                    <div class="col-md-6">
+
+                    </div>
+                    <!--/.col (right) -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </section>
+        <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+
+    <script>
+        var result;
+        console.log('name = ', name);
+        jQuery('#customer').click('change', function () {
+            var cat_name = $('#customer option:selected').val();
+            console.log('cat_name =', cat_name);
+            jQuery.post('http://localhost:3000/users/customer_select',
+                { name: cat_name },
+                function (result, status, jqXHR) {
+                    var formoption = "";
+                    var formoption2 = "";
+                    var formoption3 = "";
+                    var formoption4 = "";
+                    var formoption5 = "";
+                    var formoption6 = "";
+                    var formoption7 = "";
+                    var formoption8 = "";
+                    console.log('inquiry = ', result);
+                    var i = 0;
+                    for (var i in result.resultofcustomer) {
+                            var id = result.resultofcustomer[i].Company;
+                            console.log("customer_company =", id)
+                            formoption += "<option value='" + result.resultofcustomer[i].Company + "'>" + result.resultofcustomer[i].Company + "</option>";
+                            formoption2 += "<option value='" + result.resultofcustomer[i].VAT_number + "'>" + result.resultofcustomer[i].VAT_number + "</option>";
+                            formoption3 += "<option value='" + result.resultofcustomer[i].Phone + "'>" + result.resultofcustomer[i].Phone + "</option>";
+                            formoption4 += "<option value='" + result.resultofcustomer[i].Website + "'>" + result.resultofcustomer[i].Website + "</option>";
+                            formoption5 += "<option value='" + result.resultofcustomer[i].Address + "'>" + result.resultofcustomer[i].Address + "</option>";
+                            formoption6 += "<option value='" + result.resultofcustomer[i].City + "'>" + result.resultofcustomer[i].City + "</option>";
+                            formoption7 += "<option value='" + result.resultofcustomer[i].State + "'>" + result.resultofcustomer[i].State + "</option>";
+                            formoption8 += "<option value='" + result.resultofcustomer[i].Zip_code + "'>" + result.resultofcustomer[i].Zip_code + "</option>";
+                    }
+                    $('#company').empty();
+                    $('#company').append(formoption);
+                    $('#GST').empty();
+                    $('#GST').append(formoption2);
+                    $('#phone').empty();
+                    $('#phone').append(formoption3);
+                    $('#email').empty();
+                    $('#email').append(formoption4);
+                    $('#caddress').empty();
+                    $('#caddress').append(formoption5);
+                    $('#city').empty();
+                    $('#city').append(formoption6);
+                    $('#state').empty();
+                    $('#state').append(formoption7);
+                    $('#zipcode').empty();
+                    $('#zipcode').append(formoption8);
+                }
+            );
+        })
+    </script>
+    <!-- <script>
+        var result;
+        jQuery('#customer').click('change', function () {
+            var pro_name = $('#customer option:selected').val();
+            console.log('subcat_name =', pro_name);
+            jQuery.post('http://localhost:3000/users/customer_select',
+                { name: pro_name },
+                function (result, status, jqXHR) {
+                    console.log(result.resultofcustomer);
+                    var formoption2 = "";
+                    for (var i in result.resultofcustomer) {
+                        var id = result.resultofcustomer[i].product_name;
+                        console.log("sub_catId=", id)
+                        formoption2 += "<option value='" + result.resultofcustomer[i].VAT_number + "'>" + result.resultofcustomer[i].VAT_number + "</option>";
+                    }
+                    $('#GST').empty();
+                    $('#GST').append(formoption2);
+                }
+            );
+        })
+    </script> -->
+    <%- include('footer')%>
